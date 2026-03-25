@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Editorial Review - Review Coach</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#2d3336",
+                        "tertiary": "#486272",
+                        "tertiary-dim": "#3c5666",
+                        "primary-fixed": "#e5e2e1",
+                        "secondary-fixed-dim": "#d4d3dd",
+                        "surface-container": "#ebeef0",
+                        "primary-dim": "#535252",
+                        "on-tertiary-fixed-variant": "#486272",
+                        "surface-container-high": "#e4e9ec",
+                        "on-secondary-fixed": "#3e3f47",
+                        "background": "#f9f9fa",
+                        "secondary-dim": "#52525b",
+                        "on-surface-variant": "#5a6063",
+                        "on-tertiary": "#f4faff",
+                        "on-surface": "#2d3336",
+                        "on-secondary": "#faf8ff",
+                        "on-primary-container": "#525151",
+                        "secondary-fixed": "#e3e1ec",
+                        "error-dim": "#4e0309",
+                        "secondary": "#5e5e67",
+                        "surface-tint": "#5f5e5e",
+                        "primary-container": "#e5e2e1",
+                        "surface-dim": "#d3dbdf",
+                        "error": "#9f403d",
+                        "on-secondary-fixed-variant": "#5a5b63",
+                        "inverse-on-surface": "#9c9d9e",
+                        "outline-variant": "#adb3b6",
+                        "secondary-container": "#e3e1ec",
+                        "on-secondary-container": "#515159",
+                        "on-error": "#fff7f6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#d0ecff",
+                        "tertiary-fixed-dim": "#c2def0",
+                        "outline": "#757c7f",
+                        "surface-container-highest": "#dde3e7",
+                        "surface": "#f9f9fa",
+                        "primary-fixed-dim": "#d6d4d3",
+                        "on-error-container": "#752121",
+                        "on-primary-fixed-variant": "#5c5b5b",
+                        "on-primary": "#faf7f6",
+                        "primary": "#5f5e5e",
+                        "surface-variant": "#dde3e7",
+                        "on-tertiary-fixed": "#2c4655",
+                        "inverse-surface": "#0c0e0f",
+                        "inverse-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-bright": "#f9f9fa",
+                        "on-tertiary-container": "#3e5868",
+                        "tertiary-fixed": "#d0ecff",
+                        "error-container": "#fe8983",
+                        "on-primary-fixed": "#403f3f"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .headline-sm { font-size: 1.5rem; line-height: 2rem; }
+        .body-md { font-size: 0.875rem; line-height: 1.25rem; }
+        .display-md { font-size: 2.75rem; line-height: 3.25rem; }
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.98); }
+        }
+        .animate-ai-thinking {
+            animation: subtle-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9fa]/80 dark:bg-[#1a1a1a]/80 backdrop-blur-xl">
+    <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+        <div class="flex items-center gap-4">
+            <button class="active:scale-95 duration-200 text-[#5f5e5e] dark:text-[#faf7f6]">
+                <span class="material-symbols-outlined" data-icon="close">close</span>
+            </button>
+            <h1 class="font-inter headline-sm tracking-tight text-[#5f5e5e] dark:text-[#faf7f6]">Editorial Review</h1>
+        </div>
+        <div class="flex items-center gap-8">
+            <button class="bg-primary text-on-primary px-5 py-2 rounded-md font-medium active:scale-95 duration-200">Publish</button>
+        </div>
+    </div>
+    <div class="bg-[#ebeef0] dark:bg-[#2d3336] h-[1px] w-full opacity-20"></div>
+</header>
+<div class="flex min-h-screen pt-20">
+    <!-- NavigationDrawer (Sidebar) -->
+    <aside class="fixed inset-y-0 left-0 z-40 h-full w-80 bg-[#f2f4f5] dark:bg-[#121212] pt-24 hidden lg:block">
+        <div class="px-6 mb-12">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+                    <img alt="User profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBViHFaPPCkhTP1rNk9RYzKka_DW_KOm57ILwSdWnxh4YAfiQYmjDNFCZTkTVxArJxnfsPzGYQhGlAZu8ORVkgI0nc8_mn94YHrF1cRWPxRDp-KOtVrP49NOZnH4jOvDg7HVnUzYa1QHYELDzpV1ybm75T-UHpdPcd_fJ8UqGQ3rDSY1e2uMPrzyFj54OHfyhzcJuNHa2kTSEo_-Z7RO0ZYBx4LIvFFjqdfyHHh2kESK5CqBDJAWAR21_97OItEYVK3XE63RuBeH-lU"/>
+                </div>
+                <div>
+                    <p class="text-xl font-black text-[#2d3336]">Reviewer Profile</p>
+                    <p class="text-[#5a6063] text-xs uppercase tracking-widest">Curator Level</p>
+                </div>
+            </div>
+            
+            <!-- Download Progress UI inserted from downloading_ai -->
+            <div id="download-progress-container" class="p-6 bg-surface-container-lowest rounded-xl shadow-[0_20px_50px_rgba(45,51,54,0.05)] border-none mb-4">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-bold tracking-tight text-primary uppercase">Review Coach</span>
+                    <span id="download-progress-text" class="text-[10px] text-on-surface-variant font-mono">0%</span>
+                </div>
+                <p class="text-xs text-on-surface-variant mb-4 leading-relaxed">Loading AI Engine locally for privacy...</p>
+                <div class="w-full bg-surface-container-highest h-[2px] rounded-full overflow-hidden">
+                    <div id="download-progress" class="bg-primary h-full w-[0%] transition-all duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Canvas -->
+    <main class="flex-1 lg:ml-80 px-6 py-12 md:px-12 lg:px-24">
+        <div class="max-w-3xl mx-auto">
+            <!-- Product Overview Section -->
+            <section class="flex flex-col md:flex-row gap-12 items-start mb-20">
+                <div class="w-full md:w-1/3 aspect-[3/4] bg-surface-container rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(45,51,54,0.05)]">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm4dMAM-xNnKCCdEm1oit5m7O4uYZkrHxzDSYSFJHJ7D5bRgeQXTMOTpA5m-MWUddB7XQobLkfVMIhoCcK0ElOySuMCR3_X1bINUSiqMifhzksA2HlwTxisaMgYVcVY6G7ST-PYi3mzKFxoNE0lWgAqTduneiZc0sCO3K-ChWmNnoIt684K1uDrGEfo8-7a_Oa8_73cfMsAcFFxYEoa3Um9xbVKUiLx-rRebm7z6vI7f0uo5hpJ6KEQGCpNX6FGxicVI1xbBq3mbeh"/>
+                </div>
+                <div class="w-full md:w-2/3 pt-4">
+                    <span class="text-on-surface-variant label-sm uppercase tracking-widest mb-2 block">Current Selection</span>
+                    <h2 class="display-md font-bold tracking-tighter mb-4 text-on-surface">Essential Heavyweight Tee</h2>
+                    <div class="flex items-center gap-1 mb-6">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary-container">star</span>
+                        <span class="ml-2 body-md text-on-surface-variant font-medium">4.0 Rating</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Review Input Area -->
+            <section class="space-y-12">
+                <div class="relative">
+                    <label class="block text-on-surface-variant label-sm uppercase tracking-widest mb-4">Your Editorial Review</label>
+                    <div class="group relative">
+                        <textarea id="review-input" class="w-full min-h-[240px] bg-surface-container-highest rounded-xl p-8 text-on-surface body-md border-none focus:ring-0 focus:bg-surface-container-lowest transition-all duration-300 resize-none outline-none" placeholder="Start describing your experience..."></textarea>
+                        
+                        <!-- AI Thinking State Overlay -->
+                        <div id="ai-thinking-state" class="absolute bottom-6 right-6 hidden items-center gap-3 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-surface-container animate-ai-thinking">
+                            <div class="flex gap-1">
+                                <div class="w-1.5 h-1.5 bg-tertiary rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                                <div class="w-1.5 h-1.5 bg-tertiary rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                <div class="w-1.5 h-1.5 bg-tertiary rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                            </div>
+                            <span class="text-xs font-bold text-tertiary uppercase tracking-tighter">Review Coach Analyzing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Coach: Feedback State -->
+                <div id="ai-suggestion-box-container" class="hidden bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_50px_rgba(45,51,54,0.05)] border-l-4 border-tertiary">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-tertiary/10 p-2 rounded-lg text-tertiary">
+                            <span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-on-surface mb-2">Review Coach Suggestion</h3>
+                            <p id="ai-suggestion-box" class="text-on-surface-variant body-md leading-relaxed"></p>
+                        </div>
+                        <button class="text-on-surface-variant hover:text-on-surface transition-colors">
+                            <span class="material-symbols-outlined" data-icon="close">close</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<!-- Application Logic -->
+<script type="module" src="/main.js"></script>
+</body>
+</html>

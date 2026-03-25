@@ -1,0 +1,25 @@
+{
+  "name": "editorial-review-coach",
+  "version": "1.0.0",
+  "description": "Privacy-focused product review assistant using local WebLLM.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "webllm",
+    "ai",
+    "local-llm",
+    "vite",
+    "gpu",
+    "privacy"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.82",
+    "vite": "^8.0.2"
+  }
+}

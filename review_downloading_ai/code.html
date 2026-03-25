@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Editorial Review - Product Review Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#2d3336",
+                        "tertiary": "#486272",
+                        "tertiary-dim": "#3c5666",
+                        "primary-fixed": "#e5e2e1",
+                        "secondary-fixed-dim": "#d4d3dd",
+                        "surface-container": "#ebeef0",
+                        "primary-dim": "#535252",
+                        "on-tertiary-fixed-variant": "#486272",
+                        "surface-container-high": "#e4e9ec",
+                        "on-secondary-fixed": "#3e3f47",
+                        "background": "#f9f9fa",
+                        "secondary-dim": "#52525b",
+                        "on-surface-variant": "#5a6063",
+                        "on-tertiary": "#f4faff",
+                        "on-surface": "#2d3336",
+                        "on-secondary": "#faf8ff",
+                        "on-primary-container": "#525151",
+                        "secondary-fixed": "#e3e1ec",
+                        "error-dim": "#4e0309",
+                        "secondary": "#5e5e67",
+                        "surface-tint": "#5f5e5e",
+                        "primary-container": "#e5e2e1",
+                        "surface-dim": "#d3dbdf",
+                        "error": "#9f403d",
+                        "on-secondary-fixed-variant": "#5a5b63",
+                        "inverse-on-surface": "#9c9d9e",
+                        "outline-variant": "#adb3b6",
+                        "secondary-container": "#e3e1ec",
+                        "on-secondary-container": "#515159",
+                        "on-error": "#fff7f6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#d0ecff",
+                        "tertiary-fixed-dim": "#c2def0",
+                        "outline": "#757c7f",
+                        "surface-container-highest": "#dde3e7",
+                        "surface": "#f9f9fa",
+                        "primary-fixed-dim": "#d6d4d3",
+                        "on-error-container": "#752121",
+                        "on-primary-fixed-variant": "#5c5b5b",
+                        "on-primary": "#faf7f6",
+                        "primary": "#5f5e5e",
+                        "surface-variant": "#dde3e7",
+                        "on-tertiary-fixed": "#2c4655",
+                        "inverse-surface": "#0c0e0f",
+                        "inverse-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f5",
+                        "surface-bright": "#f9f9fa",
+                        "on-tertiary-container": "#3e5868",
+                        "tertiary-fixed": "#d0ecff",
+                        "error-container": "#fe8983",
+                        "on-primary-fixed": "#403f3f"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9fa;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9fa]/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-[#5f5e5e] active:scale-95 duration-200 transition-colors hover:text-[#2d3336]">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h1 class="text-lg font-bold tracking-tighter text-[#2d3336]">Editorial Review</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-8">
+<span class="text-[#2d3336] font-semibold text-sm cursor-default">Drafts</span>
+<span class="text-[#5a6063] hover:text-[#2d3336] transition-colors text-sm cursor-pointer">Published</span>
+<span class="text-[#5a6063] hover:text-[#2d3336] transition-colors text-sm cursor-pointer">Guidelines</span>
+</nav>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-md font-medium text-sm active:scale-95 duration-200">
+                    Publish
+                </button>
+</div>
+</div>
+<div class="bg-[#ebeef0] h-[1px] w-full opacity-20"></div>
+</header>
+<div class="flex pt-20">
+<!-- NavigationDrawer (Sidebar) -->
+<aside class="fixed inset-y-0 left-0 z-40 h-full w-80 bg-[#f2f4f5] pt-20 hidden lg:block">
+<div class="p-8 h-full flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-4 mb-12">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male editor in a minimalist studio setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVUCfZxFLWxgNIcQaG2RJvsyPHn7sQQ-sXMDxujPjVojvJtDes1dMvj15OJZiBVO3Adj4lkKwLOOCQ5VxrpGusWh7u1a_iCE-oTmF9lXLkgfaQA8mGKlaAk1XCwgj7YNkI9AaicGHZ-l9CGC3OcpyUCDuEf8JDpnHYBR_U67WZuyZrw-emp1qboex1Jm7gpg7159o_onH-CncQQGojkrLXkMVauNSoA8r6zanMOtJKsvhdnnTPPHqq4m0MwxD6gqGvHsq1RsfHORig"/>
+</div>
+<div>
+<p class="text-[#2d3336] font-black text-lg leading-tight">Reviewer Profile</p>
+<p class="text-on-surface-variant text-xs font-medium uppercase tracking-widest">Curator Level</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-[#ffffff] text-[#5f5e5e] font-medium rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span>Drafts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#5a6063] hover:bg-[#ffffff]/50 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="Check_circle">check_circle</span>
+<span>Published</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#5a6063] hover:bg-[#ffffff]/50 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span>Guidelines</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#5a6063] hover:bg-[#ffffff]/50 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-[0_20px_50px_rgba(45,51,54,0.05)] border-none">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold tracking-tight text-primary uppercase">Review Coach</span>
+<span class="text-[10px] text-on-surface-variant font-mono">68%</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-4 leading-relaxed">Loading AI Engine locally for privacy...</p>
+<div class="w-full bg-surface-container-highest h-[2px] rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[68%] transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-80 min-h-screen px-6 md:px-12 py-16">
+<div class="max-w-4xl mx-auto space-y-16">
+<!-- Product Header Section (Asymmetric Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+<div class="md:col-span-5 aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden relative group">
+<img alt="Premium Headphones" class="w-full h-full object-cover" data-alt="Sleek modern silver headphones resting on a minimalist stone surface with soft shadows and neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBddII_lRIKADiHTFcJfIHZdM8D_gVvIZTt5WmF9suMqnqIZv0FLYOAko7xsw2O6Jok7_znAIThRUdGuA7Q_sWGLZChWJLNGRK6SKMu21hkD975t0Br68Z9PGrtWGiYpTQdqOccbx9FUvSXv1st69RcUMz0pgSbxa6n0m30UBcwNjySnfcGEvE5mCTLoLjRXFulQnBNlfi3iXr9ZuMu55pT2qQtK8PBcQImNFHZHmBc1Xh7BLhOQY8wkuGNNBvP_aCTWlwSQ_AIi2a"/>
+</div>
+<div class="md:col-span-7 pt-4">
+<p class="text-on-surface-variant text-sm font-medium tracking-[0.2em] uppercase mb-4">Hardware Review</p>
+<h2 class="text-[2.75rem] font-bold leading-none tracking-tighter text-on-surface mb-6">Acoustic Genesis II</h2>
+<div class="flex items-center gap-1 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-4 text-on-surface font-medium text-lg">4.0 / 5.0</span>
+</div>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-prose mb-10">
+                            The next evolution in spatial audio. Every detail has been reconsidered to create a pure, unadulterated listening experience that prioritizes clarity over character.
+                        </p>
+</div>
+</section>
+<!-- Review Form Canvas -->
+<section class="space-y-10">
+<div class="flex flex-col md:flex-row items-baseline justify-between gap-4">
+<h3 class="text-2xl font-bold tracking-tight text-on-surface">Your Testimonial</h3>
+<span class="text-sm text-on-surface-variant italic">Sharing as Senior Editor</span>
+</div>
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-lg shadow-[0_20px_50px_rgba(45,51,54,0.05)] border-none">
+<div class="space-y-8">
+<!-- Rating Selector -->
+<div class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Overall Rating</label>
+<div class="flex gap-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-md bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all duration-200">1</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-md bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all duration-200">2</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-md bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all duration-200">3</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-md bg-primary text-on-primary shadow-lg shadow-primary/10">4</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-md bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary transition-all duration-200">5</button>
+</div>
+</div>
+<!-- Text Area -->
+<div class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Detailed Review</label>
+<div class="relative">
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-6 text-on-surface focus:ring-0 focus:bg-surface-container-lowest transition-all duration-300 placeholder:text-outline-variant/50 resize-none text-lg leading-relaxed outline-none" placeholder="Begin your editorial analysis here..." rows="8"></textarea>
+<!-- Contextual AI Downloading Overlay (Subtle) -->
+<div class="absolute bottom-4 right-4 flex items-center gap-3 bg-surface-container-lowest/80 backdrop-blur px-4 py-2 rounded-full border border-surface-container-highest">
+<div class="flex gap-1">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-bounce"></span>
+</div>
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant">AI Coach Preparing...</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-6 pt-4">
+<button class="flex-1 bg-primary text-on-primary py-5 rounded-md font-bold tracking-tight text-lg hover:bg-primary-dim transition-all duration-300 active:scale-[0.98]">
+                                    Submit for Peer Review
+                                </button>
+<button class="px-8 py-5 border-b-2 border-outline-variant/20 text-on-surface font-semibold hover:border-outline-variant/60 transition-all duration-300">
+                                    Save Draft
+                                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Guidelines Section (Minimalist Grid) -->
+<section class="pt-12 border-t border-surface-container-highest">
+<h4 class="text-xs font-bold uppercase tracking-[0.3em] text-on-surface-variant mb-8 text-center">Submission Standards</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="space-y-3">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<p class="font-bold text-sm">Authentic Insight</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">Prioritize personal experience over technical specifications available elsewhere.</p>
+</div>
+<div class="space-y-3">
+<span class="material-symbols-outlined text-primary" data-icon="balance">balance</span>
+<p class="font-bold text-sm">Balanced Critique</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">Every masterpiece has a flaw; every utility item has a moment of brilliance.</p>
+</div>
+<div class="space-y-3">
+<span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+<p class="font-bold text-sm">Visual Context</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">Describe the aesthetic integration within a lived-in space or workflow.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation (Conditional rendering) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl border-t border-surface-container-highest z-50">
+<div class="flex justify-around items-center h-16">
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="text-[10px] font-medium mt-1">Drafts</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="Check_circle">check_circle</span>
+<span class="text-[10px] font-medium mt-1">Published</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-medium mt-1">Settings</span>
+</button>
+</div>
+</nav>
+</body></html>
