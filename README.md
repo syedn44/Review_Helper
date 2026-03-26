@@ -2,7 +2,8 @@
 
 A modern, privacy-focused product review interface that uses on-device LLMs to provide real-time writing suggestions. Built with WebGPU and WebLLM, all AI processing happens entirely in your browser—no data ever leaves your machine.
 
-![Project Preview](https://lh3.googleusercontent.com/aida-public/AB6AXuBViHFaPPCkhTP1rNk9RYzKka_DW_KOm57ILwSdWnxh4YAfiQYmjDNFCZTkTVxArJxnfsPzGYQhGlAZu8ORVkgI0nc8_mn94YHrF1cRWPxRDp-KOtVrP49NOZnH4jOvDg7HVnUzYa1QHYELDzpV1ybm75T-UHpdPcd_fJ8UqGQ3rDSY1e2uMPrzyFj54OHfyhzcJuNHa2kTSEo_-Z7RO0ZYBx4LIvFFjqdfyHHh2kESK5CqBDJAWAR21_97OItEYVK3XE63RuBeH-lU)
+![Project Preview 1](review_helper_screen1.png)
+![Project Preview 2](review_helper_screen2.png)
 
 ## 🚀 Key Features
 
