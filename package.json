@@ -19,7 +19,9 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "@mlc-ai/web-llm": "^0.2.82",
-    "vite": "^8.0.2"
+    "@mlc-ai/web-llm": "^0.2.82"
+  },
+  "devDependencies": {
+    "vite": "^8.3.6"
   }
 }
