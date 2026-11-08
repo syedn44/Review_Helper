@@ -34,8 +34,8 @@ A modern, privacy-focused product review interface that uses on-device LLMs to p
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/editorial-review-coach.git
-   cd editorial-review-coach
+   git clone https://github.com/syedn44/review_helper.git
+   cd review_helper
    ```
 
 2. Install dependencies:
